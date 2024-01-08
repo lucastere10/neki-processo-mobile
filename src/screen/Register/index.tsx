@@ -9,6 +9,8 @@ export const Register = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
 
   return (
     <ImageBackground source={require('../../assets/images/registerBackground.png')} style={styles.backgroundImage}>
@@ -18,8 +20,8 @@ export const Register = ({ navigation }) => {
         <View style={styles.input}>
           <Ionicons name="person-circle" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Username"
+            style={[styles.inputText, { fontFamily: 'Poppins-Regular' }]}
+            placeholder="Nome"
             value={username}
             onChangeText={(text) => setUsername(text)}
           />
@@ -29,8 +31,8 @@ export const Register = ({ navigation }) => {
         <View style={styles.input}>
           <Ionicons name="at" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="E-mail"
+            style={[styles.inputText, { fontFamily: 'Poppins-Regular' }]}
+            placeholder="Email"
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
@@ -40,25 +42,38 @@ export const Register = ({ navigation }) => {
         <View style={styles.input}>
           <FontAwesome name="unlock-alt" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Password"
-            secureTextEntry
+            style={[styles.inputTextPassword, { fontFamily: 'Poppins-Regular' }]}
+            placeholder="Senha"
+            secureTextEntry={!isPasswordVisible}
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-          <View></View>
+          <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+            <FontAwesome name={isPasswordVisible ? "eye-slash" : "eye"} size={24} color="#3F3335" />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.input}>
           <FontAwesome name="unlock-alt" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Repeat Password"
-            secureTextEntry
+            style={[styles.inputTextPassword, { fontFamily: 'Poppins-Regular' }]}
+            placeholder="Confirmar Senha"
+            secureTextEntry={!isRepeatPasswordVisible}
             value={repeatPassword}
             onChangeText={(text) => setRepeatPassword(text)}
           />
-          <View></View>
+          <TouchableOpacity onPress={() => setIsRepeatPasswordVisible(!isRepeatPasswordVisible)}>
+            <FontAwesome name={isRepeatPasswordVisible ? "eye-slash" : "eye"} size={24} color="#3F3335" />
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <Text style={[styles.Letras, { fontFamily: 'Poppins-Regular' }]} > Já tem uma conta? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text
+              style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize:16 }}
+            >Entrar</Text>
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity

@@ -124,7 +124,6 @@ export const ModalAdicionarPerfilSkill = ({
 														value={value}
 														setValue={onChange}
 														onChangeValue={(value) => {
-															console.log(value); // Log the new value here
 															onChange(value);
 														}}
 														open={dropdownOpen}

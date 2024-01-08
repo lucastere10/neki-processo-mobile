@@ -7,13 +7,15 @@ export const styles = StyleSheet.create({
         flex:1
     },
     containerUpper: {
-        backgroundColor:'#4F392B',
+        backgroundColor:'#2D939C',
         justifyContent:"center",
         alignItems:'center',
-        height:120
-    },
+        height:120,
+        flexDirection:'row',
+        gap:8
+    },    
     containerLower:{
-        backgroundColor:'#7E8F7F',
+        backgroundColor:'#91C4C9',
         justifyContent:"center",
         alignItems:'center',
         height:40
@@ -36,10 +38,17 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
         gap:20
     },
+    image:{
+        width: 70, 
+        height: 70
+    },
+    titleText:{
+        fontSize:48,
+        color:'#f4f4f4',
+    },
     text:{
-        fontSize:20,
-        color:'#3F3335',
-        textDecorationLine:'underline'
+        fontSize:24,
+        color:'#181818',
     },
     title:{
         fontSize:18,
@@ -48,19 +57,14 @@ export const styles = StyleSheet.create({
         textDecorationLine:"underline"
     },
     cardcontainer:{
-        
         padding: 20,
         width: '100%',
         alignItems:"flex-start",
-        backgroundColor: '#E7DCDA', 
-        
-         
+        backgroundColor: '#F4F4F4', 
     },
     text2:{
         marginBottom: 15,
         fontSize: 20,
-        
-        
     },
     profileImage:{
         width: 150,
@@ -72,9 +76,8 @@ export const styles = StyleSheet.create({
         marginLeft: 120  
     },
     cardtotal:{
-        backgroundColor: '#E7DCDA',
+        backgroundColor: '#F4F4F4',
         flex: 1
-        
     },
     boldText: {
         fontWeight: 'bold',

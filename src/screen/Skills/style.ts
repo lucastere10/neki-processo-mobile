@@ -7,16 +7,26 @@ export const styles = StyleSheet.create({
         flex:1
     },
     containerUpper: {
-        backgroundColor:'#4F392B',
+        backgroundColor:'#2D939C',
         justifyContent:"center",
         alignItems:'center',
-        height:120
-    },
+        height:120,
+        flexDirection:'row',
+        gap:8
+    },    
     containerLower:{
-        backgroundColor:'#7E8F7F',
+        backgroundColor:'#91C4C9',
         justifyContent:"center",
         alignItems:'center',
         height:40
+    },
+    image:{
+        width: 70, 
+        height: 70
+    },
+    titleText:{
+        fontSize:48,
+        color:'#f4f4f4',
     },
     containerCard:{
         flex:1,
@@ -36,9 +46,8 @@ export const styles = StyleSheet.create({
         fontSize:20,
     },
     text:{
-        fontSize:20,
-        color:'#3F3335',
-        textDecorationLine:'underline'
+        fontSize:24,
+        color:'#181818',
     },
     addSkillButton:{
         backgroundColor:'#2D939C',

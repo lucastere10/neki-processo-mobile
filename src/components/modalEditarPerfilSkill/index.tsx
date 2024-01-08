@@ -3,10 +3,9 @@ import { View, Text, TouchableOpacity, Modal, ActivityIndicator, TextInput, Aler
 import { styles } from './style';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { Entypo, MaterialIcons, AntDesign } from '@expo/vector-icons';
-import { skillSchema } from "../../schemas/skillSchema";
 import api from "../../service/api/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { profileEditSkillSchema } from "../../schemas/profileEditSkillSchema";
 
 
 interface ModalEditarPerfilSkillProps {
@@ -33,7 +32,7 @@ export const ModalEditarPerfilSkill = ({
 		watch,
 		formState: { errors }
 	} = useForm<profileSkillType>({
-		resolver: yupResolver(skillSchema)
+		resolver: yupResolver(profileEditSkillSchema)
 	});
 
 	const onSubmit: SubmitHandler<profileSkillType> = data => {
