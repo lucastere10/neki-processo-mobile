@@ -30,10 +30,17 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  inputText:{
-      fontSize:16,
-      textAlign: 'center', 
-      width: '100%', 
+  inputText: {
+    textAlign: 'center', 
+    width: '100%', 
+    paddingLeft: 30, 
+    paddingRight: 60, 
+  },
+  inputTextPassword: {
+    textAlign: 'center', 
+    width: '90%', 
+    paddingLeft: 30, 
+    paddingRight: 30, 
   },
   Botao:{
     paddingHorizontal: 24,
@@ -44,9 +51,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 120,
   },
-  Letras:{
+  Letras: {
     color: '#fff',
-    
-  }
+    marginTop:20,
+    marginBottom: 5,
+    fontSize: 18 
+  },
    
 });

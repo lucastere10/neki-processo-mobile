@@ -28,6 +28,12 @@ const styles = StyleSheet.create({
     textAlign: 'center', 
     width: '100%', 
     paddingLeft: 30, 
+    paddingRight: 60, 
+  },
+  inputTextPassword: {
+    textAlign: 'center', 
+    width: '90%', 
+    paddingLeft: 30, 
     paddingRight: 30, 
   },
   Botao: {
@@ -44,7 +50,8 @@ const styles = StyleSheet.create({
   },
   Letras: {
     color: '#fff',
-    marginVertical: 30,
+    marginTop:30,
+    marginBottom: 10,
     fontSize: 18 
   },
   cadastroText: {

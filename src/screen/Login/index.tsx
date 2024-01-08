@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, ImageBackground, Text, Alert } from 'react-native';
+import { View, TextInput, TouchableOpacity, ImageBackground, Text, Alert, Switch } from 'react-native';
 import styles from './style';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { loginUser } from '../../service/auth/auth';
@@ -7,6 +7,8 @@ import { loginUser } from '../../service/auth/auth';
 export const Login = ({ navigation, setAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = () => {
     if (!username.trim()) {
@@ -25,7 +27,7 @@ export const Login = ({ navigation, setAuth }) => {
         <View style={styles.input}>
           <Ionicons name="person-circle" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
+            style={[styles.inputText, { fontFamily: 'Poppins-Regular' }]}
             placeholder="Nome"
             value={username}
             onChangeText={(text) => setUsername(text)}
@@ -36,20 +38,29 @@ export const Login = ({ navigation, setAuth }) => {
         <View style={styles.input}>
           <FontAwesome name="unlock-alt" size={24} color="#3F3335" />
           <TextInput
-            style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
+            style={[styles.inputTextPassword, { fontFamily: 'Poppins-Regular' }]}
             placeholder="Senha"
-            secureTextEntry
+            secureTextEntry={!isPasswordVisible}
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-          <View></View>
+          <TouchableOpacity onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+            <FontAwesome name={isPasswordVisible ? "eye-slash" : "eye"} size={24} color="#3F3335" />
+          </TouchableOpacity>
         </View>
+        {/* <View style={{ flexDirection: 'row', alignItems: 'center', alignContent: 'center' }}>
+          <Switch
+            value={rememberMe}
+            onValueChange={setRememberMe}
+          />
+          <Text style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Regular' }}>Lembrar de Mim</Text>
+        </View> */}
 
         <View>
           <Text style={[styles.Letras, { fontFamily: 'Poppins-Regular' }]} > Não possui conta? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Register')}>
             <Text
-              style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Regular' }}
+              style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins-Bold', fontSize:16 }}
             >Cadastre-se</Text>
           </TouchableOpacity>
         </View>
