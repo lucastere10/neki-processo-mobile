@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, ImageBackground, Text } from 'react-native';
+import { View, TextInput, TouchableOpacity, ImageBackground, Text, Alert } from 'react-native';
 import styles from './style';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { loginUser } from '../../service/auth/auth';
@@ -7,6 +7,17 @@ import { loginUser } from '../../service/auth/auth';
 export const Login = ({ navigation, setAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    if (!username.trim()) {
+      Alert.alert('Campo obrigatório', 'Por favor, insira seu nome');
+      return;
+    }
+    if (!password.trim()) {
+      Alert.alert('Campo obrigatório', 'Por favor, insira sua senha');
+      return;
+    }
+  }
 
   return (
     <ImageBackground source={require('../../assets/images/loginBackground.png')} style={styles.backgroundImage}>

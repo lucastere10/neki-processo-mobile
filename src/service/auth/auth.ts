@@ -67,6 +67,7 @@ export const loginUser = async (email, senha, setAuth) => {
 export const logout = async (setAuth) => {
     try {
         await AsyncStorage.removeItem('id');
+        await AsyncStorage.removeItem('token');
         setAuth(false);
         ToastAndroid.show('Sessão finalizada', ToastAndroid.TOP);
         console.log('Logout successful!');

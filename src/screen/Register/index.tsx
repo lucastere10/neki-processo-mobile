@@ -19,7 +19,7 @@ export const Register = ({ navigation }) => {
           <Ionicons name="person-circle" size={24} color="#3F3335" />
           <TextInput
             style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Username"
+            placeholder="Nome"
             value={username}
             onChangeText={(text) => setUsername(text)}
           />
@@ -30,7 +30,7 @@ export const Register = ({ navigation }) => {
           <Ionicons name="at" size={24} color="#3F3335" />
           <TextInput
             style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="E-mail"
+            placeholder="Email"
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
@@ -41,7 +41,7 @@ export const Register = ({ navigation }) => {
           <FontAwesome name="unlock-alt" size={24} color="#3F3335" />
           <TextInput
             style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Password"
+            placeholder="Senha"
             secureTextEntry
             value={password}
             onChangeText={(text) => setPassword(text)}
@@ -53,7 +53,7 @@ export const Register = ({ navigation }) => {
           <FontAwesome name="unlock-alt" size={24} color="#3F3335" />
           <TextInput
             style={[styles.inputText, {fontFamily:'Poppins-Regular'}]}
-            placeholder="Repeat Password"
+            placeholder="Confirmar Senha"
             secureTextEntry
             value={repeatPassword}
             onChangeText={(text) => setRepeatPassword(text)}

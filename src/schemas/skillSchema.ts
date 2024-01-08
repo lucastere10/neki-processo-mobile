@@ -5,7 +5,7 @@ export const skillSchema = yup.object().shape({
     skillNome: yup
         .string()
         .required('Favor adicionar o nome da Habilidade'),
-    skillDescricao: yup
+    perfilSkillVersao: yup
         .string()
         .required('Favor adicionar a descrição da Habilidade'),
 });

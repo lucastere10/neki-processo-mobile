@@ -42,7 +42,8 @@ export const Skills = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerUpper}>
-        <Image style={{ marginTop: 30 }} source={require('../../assets/images/ShoinLogo.png')} />
+        <Image style={[styles.image, { marginTop: 30 }]} source={require('../../assets/images/logo-blank.png')} />
+        <Text style={[styles.titleText, { fontFamily: 'Poppins-SemiBold', marginTop: 36 }]}>SKILL+</Text>
       </View>
       <View style={styles.containerLower}>
         <Text style={[styles.text, { fontFamily: 'Poppins-SemiBold' }]}>Habilidades</Text>

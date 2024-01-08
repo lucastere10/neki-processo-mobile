@@ -33,7 +33,8 @@ export const Profile = ({ setAuth }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.containerUpper}>
-                <Image style={{ marginTop: 30 }} source={require('../../assets/images/ShoinLogo.png')} />
+                <Image style={[styles.image, { marginTop: 30 }]} source={require('../../assets/images/logo-blank.png')} />
+                <Text style={[styles.titleText, { fontFamily: 'Poppins-SemiBold', marginTop: 36  }]}>SKILL+</Text>
             </View>
             <View style={styles.containerLower}>
                 <Text style={[styles.text, { fontFamily: 'Poppins-SemiBold' }]}>Perfil</Text>
@@ -47,15 +48,9 @@ export const Profile = ({ setAuth }) => {
                 <Text style={styles.text2}><Text style={styles.boldText}>Perfil: </Text>{perfil}</Text>
                 <View style={{ flexDirection: 'row', gap: 12 }}>
                     <TouchableOpacity onPress={() => logout(setAuth)}>
-                        <View style={[styles.logout, { backgroundColor: '#3F3335', }]}>
+                        <View style={[styles.logout, { backgroundColor: '#CB1313', }]}>
                             <MaterialIcons style={{ color: '#FFFFFF' }} name="logout" size={24} color="black" />
                             <Text style={styles.logoutText}>Deslogar</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => { }}>
-                        <View style={[styles.logout, { backgroundColor: '#7E8F7F', }]}>
-                            <MaterialIcons style={{ color: '#FFFFFF' }} name="add-shopping-cart" size={24} color="black" />
-                            <Text style={styles.logoutText}>Carrinho</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
