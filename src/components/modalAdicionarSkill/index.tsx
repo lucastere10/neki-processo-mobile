@@ -128,8 +128,11 @@ export const ModalAdicionarSkill = ({
 														onBlur={onBlur}
 														onChangeText={onChange}
 														value={value}
-														style={styles.title}>
-													</TextInput>
+														style={styles.title}
+														multiline={true} 
+														numberOfLines={1}
+														textAlignVertical='top'
+													/>
 												)}
 												name="skillDescricao"
 											/>
@@ -138,7 +141,7 @@ export const ModalAdicionarSkill = ({
 									<View style={{ marginBottom: 3 }}>
 										<Text style={styles.label}>Url</Text>
 										<View style={styles.inputContainer}>
-												<Controller
+											<Controller
 												control={control}
 												render={({ field: { onChange, onBlur, value } }) => (
 													<TextInput

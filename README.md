@@ -1,6 +1,6 @@
 # SKILL+ Mobile
 
-Este é o aplicativo mobile do projeto para um processo seletivo. Ele foi construído usando React Native e possui autenticação via AsyncStorage, gerenciamento de formulários com React Hook Form, validação com Yup Resolver, requisições API com Axios e navegação com React Navigation.
+Aplicativo mobile desenvolvido para um processo seletivo. Ele foi construído usando React Native e possui autenticação via AsyncStorage, gerenciamento de formulários com React Hook Form, validação com Yup Resolver, requisições API com Axios e navegação com React Navigation.
 
 ## Tecnologias Utilizadas
 
@@ -23,3 +23,9 @@ Abra o aplicativo Expo no seu celular e escaneie o QR Code.
 ## Contribuição
 
 Contribuições são sempre bem-vindas. Para contribuir:
+
+## Telas
+
+<img src="./assets/TelaLogin.png">
+<img src="./assets/TelaCadastro.png">
+<img src="./assets/TelaSkills.png">
