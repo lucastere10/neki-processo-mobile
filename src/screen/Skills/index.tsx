@@ -60,9 +60,10 @@ export const Skills = () => {
         <FlatList
           data={skills}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(data) => data.title}
+          keyExtractor={(data) => data.skillId}
           renderItem={({ item }) => (
             <CardSkill
+              key={item.skillId}
               skill={item}
               triggerEdit={triggerEdit}
               setTriggerEdit={setTriggerEdit}

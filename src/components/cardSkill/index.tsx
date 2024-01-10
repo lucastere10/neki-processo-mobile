@@ -5,6 +5,7 @@ import { styles } from './style';
 import api from "../../service/api/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ModalEditarSkill } from "../modalEditarSkill";
+import { ModalVerSkill } from "../modalVerSkill";
 
 export interface skillProps {
     skill: skillType
@@ -14,11 +15,12 @@ export interface skillProps {
 
 export const CardSkill = ({ skill, triggerEdit, setTriggerEdit }: skillProps) => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const [isModalGetVisible, setIsModalGetVisible] = useState<boolean>(false);
 
     function abrirModal() {
         setIsModalVisible(true);
-      }
-    
+    }
+
     const confirmarDeletarEvento = async (skillId: number) => {
         const token = await AsyncStorage.getItem('id');
 
@@ -54,39 +56,48 @@ export const CardSkill = ({ skill, triggerEdit, setTriggerEdit }: skillProps) =>
     };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.produto}>
-                <Image source={{ uri: skill.skillUrl }} style={styles.image} />
-                <View style={styles.info}>
-                    <View style={{ width: 200 }}>
-                        <Text style={[styles.title, { fontFamily: 'Poppins-Bold' }]} numberOfLines={1}>
-                            {skill !== undefined ? `${skill.skillNome}` : 'Loading...'}
+        <TouchableOpacity onPress={() => { setIsModalGetVisible(true) }}>
+            <View style={styles.container}>
+                <View style={styles.produto}>
+                    <Image source={{ uri: skill.skillUrl }} style={styles.image} />
+                    <View style={styles.info}>
+                        <View style={{ width: 200 }}>
+                            <Text style={[styles.title, { fontFamily: 'Poppins-Bold' }]} numberOfLines={1}>
+                                {skill !== undefined ? `${skill.skillNome}` : 'Loading...'}
+                            </Text>
+                        </View>
+                        <Text style={[styles.price, { fontFamily: 'Poppins-Regular' }]}>
+                            {skill !== undefined ? `${skill.skillDescricao.substring(0, 25)}` + '...' : 'Loading...'}
                         </Text>
                     </View>
-                    <Text style={[styles.price, { fontFamily: 'Poppins-Regular' }]}>
-                        {skill !== undefined ? `${skill.skillDescricao}` : 'Loading...'}
-                    </Text>
                 </View>
+                <View style={{ flexDirection: 'row', gap: 16 }}>
+                    <TouchableOpacity onPress={abrirModal}>
+                        <View style={{ justifyContent: 'flex-end' }}>
+                            <Feather name="edit-2" size={24} color="gray" />
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { confirmarDeletarEvento(skill.skillId) }}>
+                        <View style={{ justifyContent: 'flex-end' }}>
+                            <AntDesign name="closecircleo" size={24} color="#DF3232" />
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                {isModalVisible &&
+                    <ModalEditarSkill
+                        skill={skill}
+                        triggerEdit={triggerEdit}
+                        setTriggerEdit={setTriggerEdit}
+                        isModalVisible={isModalVisible}
+                        setIsModalVisible={setIsModalVisible} />}
+                {isModalGetVisible &&
+                    <ModalVerSkill
+                        skill={skill}
+                        triggerEdit={triggerEdit}
+                        setTriggerEdit={setTriggerEdit}
+                        isModalVisible={isModalGetVisible}
+                        setIsModalVisible={setIsModalGetVisible} />}
             </View>
-            <View style={{ flexDirection: 'row', gap: 16 }}>
-                <TouchableOpacity onPress={abrirModal}>
-                    <View style={{ justifyContent: 'flex-end' }}>
-                        <Feather name="edit-2" size={24} color="gray" />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { confirmarDeletarEvento(skill.skillId) }}>
-                    <View style={{ justifyContent: 'flex-end' }}>
-                        <AntDesign name="closecircleo" size={24} color="#DF3232" />
-                    </View>
-                </TouchableOpacity>
-            </View>
-            {isModalVisible &&
-                <ModalEditarSkill
-                    skill={skill}
-                    triggerEdit={triggerEdit}
-                    setTriggerEdit={setTriggerEdit}
-                    isModalVisible={isModalVisible}
-                    setIsModalVisible={setIsModalVisible} />}
-        </View>
+        </TouchableOpacity>
     )
 }

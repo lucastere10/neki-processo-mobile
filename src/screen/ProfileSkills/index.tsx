@@ -28,7 +28,7 @@ export const ProfileSkills = () => {
     const token = await AsyncStorage.getItem('id');
     console.log(`TOKEN: `, token)
     try {
-      const response = await api.get('/api/perfilskills', {
+      const response = await api.get('/api/perfilskills/user', {
         headers: {
           Authorization: `${token}`
         }
@@ -61,9 +61,10 @@ export const ProfileSkills = () => {
         <FlatList
           data={perfilSkills}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(data) => data.title}
+          keyExtractor={(data) => data.perfilSkillId}
           renderItem={({ item }) => (
             <CardPerfilSkill
+              key={item.perfilSkillId}
               perfilSkill={item}
               triggerEdit={triggerEdit}
               setTriggerEdit={setTriggerEdit}

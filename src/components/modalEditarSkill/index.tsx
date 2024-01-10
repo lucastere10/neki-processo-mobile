@@ -132,8 +132,10 @@ export const ModalEditarSkill = ({
 														onChangeText={onChange}
 														value={value}
 														style={styles.title}
-														>
-													</TextInput>
+														multiline={true} 
+														numberOfLines={1}
+														textAlignVertical='top'
+													/>
 												)}
 												name="skillDescricao"
 												defaultValue={skill.skillDescricao}
